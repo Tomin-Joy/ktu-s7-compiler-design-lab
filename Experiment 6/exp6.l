@@ -1,27 +1,16 @@
+
+
 %{
-
-    #include "y.tab.h"
-
+#include "y.tab.h"
 %}
 
 %%
-
-[a-zA-Z_][a-zA-Z_0-9]* return id;
-
-[0-9]+(\.[0-9]*)?      return num;
-
-[+/*]                  return op;
-
+[a-zA-Z][a-zA-Z0-9]* { return id; }
 .                      return yytext[0];
 
 \n                     return 0;
-
 %%
 
-int yywrap()
-
-{
-
-return 1;
-
+int yywrap() {
+    return 1;
 }
